@@ -14,7 +14,7 @@ app.use('/auth', authRoutes);
 app.use('/resources', resourceRoutes);
 
 app.get('/', (req,res) => { 
-  res.send("Welcome");
+  res.send("Welcome!");
 })
 
 const PORT = process.env.PORT || 5000;
