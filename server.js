@@ -10,6 +10,8 @@ const app = express();
 
 app.use(express.json());
 
+connectDB();
+
 app.use('/auth', authRoutes);
 app.use('/resources', resourceRoutes);
 
@@ -17,8 +19,11 @@ app.get('/', (req,res) => {
   res.send("Welcome!");
 })
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-  connectDB();
-});
+export default app;
+
+if (process.env.NODE_ENV !== "production") {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
