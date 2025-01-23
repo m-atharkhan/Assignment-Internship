@@ -14,6 +14,7 @@ const userSchema = new mongoose.Schema({
         const { error } = emailSchema.validate(email);
         return !error;
       },
+      
       message: (props) => `${props.value} is not a valid email address`,
     },
   },
